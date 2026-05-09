@@ -35,7 +35,7 @@ pipeline {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pytest --headless --browser=chromium --alluredir=${ALLURE_RESULTS}
+                    pytest --browser=chromium --alluredir=${ALLURE_RESULTS}
                 '''
             }
         }
