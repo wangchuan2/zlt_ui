@@ -5,6 +5,8 @@ pipeline {
         PYTHON_VERSION = '3.11'
         ALLURE_RESULTS = 'reports/allure-results'
         ALLURE_REPORT = 'reports/allure-report'
+        TEST_USERNAME = '18162428572'
+        TEST_PASSWORD = '111111'
     }
 
     options {
