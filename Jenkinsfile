@@ -38,6 +38,8 @@ pipeline {
                 sh '''
                     . venv/bin/activate
                     pytest -o "addopts=" --browser=chromium --alluredir=${ALLURE_RESULTS} -v
+                    echo "=== Allure results verification ==="
+                    ls -la ${ALLURE_RESULTS} || echo "WARNING: Allure results directory not found!"
                 '''
             }
         }
