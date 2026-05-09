@@ -1,0 +1,14 @@
+base:
+  url: https://www.zltquant.com/square
+  timeout: 30000
+  headless: false
+
+browser:
+  viewport:
+    width: 1920
+    height: 1080
+  locale: zh-CN
+
+credentials:
+  username: ""
+  password: ""
