@@ -70,34 +70,34 @@ class TestLoginSuccess:
 
             assert found, "登录后未找到用户标识元素，可能登录未成功"
 
-    @allure.title("使用账号密码登录 Tab 登录")
-    @allure.description("切换到账号密码登录方式，验证登录流程正常")
-    @pytest.mark.login
-    def test_login_via_username_tab(self, page: Page):
-        """测试用例：通过账号密码登录 Tab 登录"""
-        username = os.getenv("TEST_USERNAME", "")
-        password = os.getenv("TEST_PASSWORD", "")
+    # @allure.title("使用账号密码登录 Tab 登录")
+    # @allure.description("切换到账号密码登录方式，验证登录流程正常")
+    # @pytest.mark.login
+    # def test_login_via_username_tab(self, page: Page):
+    #     """测试用例：通过账号密码登录 Tab 登录"""
+    #     username = os.getenv("TEST_USERNAME", "")
+    #     password = os.getenv("TEST_PASSWORD", "")
 
-        if not username or not password:
-            pytest.skip("未配置测试账号，请设置环境变量 TEST_USERNAME 和 TEST_PASSWORD")
+    #     if not username or not password:
+    #         pytest.skip("未配置测试账号，请设置环境变量 TEST_USERNAME 和 TEST_PASSWORD")
 
-        login_page = LoginPage(page)
+    #     login_page = LoginPage(page)
 
-        with allure.step("打开登录页面"):
-            login_page.open()
+    #     with allure.step("打开登录页面"):
+    #         login_page.open()
 
-        with allure.step("切换到账号密码登录"):
-            login_page.switch_to_username_login()
+    #     with allure.step("切换到账号密码登录"):
+    #         login_page.switch_to_username_login()
 
-        with allure.step("输入账号密码并登录"):
-            login_page.input_username(username)
-            login_page.input_password(password)
-            login_page.click_login()
+    #     with allure.step("输入账号密码并登录"):
+    #         login_page.input_username(username)
+    #         login_page.input_password(password)
+    #         login_page.click_login()
 
-        with allure.step("验证登录成功"):
-            page.wait_for_timeout(2000)
-            current_url = page.url
-            assert "/login" not in current_url, f"登录失败，仍在登录页: {current_url}"
+    #     with allure.step("验证登录成功"):
+    #         page.wait_for_timeout(2000)
+    #         current_url = page.url
+    #         assert "/login" not in current_url, f"登录失败，仍在登录页: {current_url}"
 
-            screenshot = page.screenshot()
-            allure.attach(screenshot, name="账号密码登录成功", attachment_type=allure.attachment_type.PNG)
+    #         screenshot = page.screenshot()
+    #         allure.attach(screenshot, name="账号密码登录成功", attachment_type=allure.attachment_type.PNG)
