@@ -30,7 +30,7 @@ class TestLoginSuccess:
 
         with allure.step("步骤1: 打开登录页面并执行登录"):
             login_page = LoginPage(page)
-            login_page.loin(username=username, password=password)
+            login_page.login(username=username, password=password)
 
         with allure.step("步骤2: 验证登录成功"):
             # 方式1: 检查页面跳转（URL 不再是登录页）
