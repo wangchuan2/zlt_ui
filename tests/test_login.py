@@ -36,7 +36,7 @@ class TestLoginSuccess:
             # 方式1: 检查页面跳转（URL 不再是登录页）
             current_url = page.url
             logger.info(f"当前页面URL: {current_url}")
-            allure.attach(current_url, name="登录后URLtest", attachment_type=allure.attachment_type.TEXT)
+            allure.attach(current_url, name="登录后URL", attachment_type=allure.attachment_type.TEXT)
 
             # 断言：URL 已变化，不再停留在登录页
             assert "/login" not in current_url, f"登录后仍停留在登录页: {current_url}"
