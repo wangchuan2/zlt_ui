@@ -21,9 +21,9 @@ pipeline {
 
         stage('Setup Environment') {
             steps {
-                bat '''
-                    python -m venv venv
-                    call venv\\Scripts\\activate
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
                     playwright install chromium
@@ -33,9 +33,9 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat '''
-                    call venv\\Scripts\\activate
-                    pytest -n auto --headless --browser=chromium --alluredir=%ALLURE_RESULTS%
+                sh '''
+                    . venv/bin/activate
+                    pytest --headless --browser=chromium --alluredir=${ALLURE_RESULTS}
                 '''
             }
         }
