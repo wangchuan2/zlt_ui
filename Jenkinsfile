@@ -47,12 +47,17 @@ pipeline {
 
     post {
         always {
+            sh '''
+                echo "Current WORKSPACE: ${WORKSPACE}"
+                echo "Allure results dir contents:"
+                ls -la ${WORKSPACE}/reports/allure-results/ 2>/dev/null || echo "Directory not found at expected location"
+            '''
             allure([
                 includeProperties: false,
                 jdk: '',
                 properties: [],
                 reportBuildPolicy: 'ALWAYS',
-                results: [[path: 'reports/allure-results']]
+                results: [[path: '${WORKSPACE}/reports/allure-results']]
             ])
         }
     }
