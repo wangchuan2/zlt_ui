@@ -29,7 +29,7 @@ class LoginPage(BasePage):
 
     @allure.step("打开首页并点击登录入口")
     def open(self):
-        """打开首页，等待登录入口加载3"""
+        """打开首页，等待登录入口加载34"""
         self.navigate(self.base_url)
         self.page.wait_for_load_state("networkidle")
         logger.info(f"Opened homepage: {self.base_url}")
